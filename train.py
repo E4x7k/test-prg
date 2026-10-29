@@ -1,8 +1,8 @@
 import joblib
 import pandas as pd
-from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import precision_score, recall_score
+from sklearn.model_selection import train_test_split
 
 data = pd.read_csv("data/scoring.csv")
 X = data.drop(columns=["default"]).values
