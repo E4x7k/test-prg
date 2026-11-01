@@ -1,3 +1,5 @@
+import os
+
 import joblib
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
@@ -20,4 +22,5 @@ print(f"Отказано: {y_pred.mean() * 100:.0f}%")
 print(f"Точность: {precision * 100:.0f}%")
 print(f"Полнота:  {recall * 100:.0f}%")
 
-joblib.dump(model, "model.pkl")
+os.makedirs("model", exist_ok=True)
+joblib.dump(model, "model/model.pkl")

@@ -24,7 +24,7 @@ if os.getenv('MODE') != 'DEV':
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     logger.info("Start application")
-    app.state.model = joblib.load("model.pkl")
+    app.state.model = joblib.load("../model/model.pkl")
     logger.info("Model is loaded")
     yield
     logger.info("Start shutdown")
