@@ -33,7 +33,7 @@ python train.py
 
 ```shell
 cd .\backend\
-uvicorn service:app
+uvicorn main:app
 ```
 
 Запустите Streamlit-интерфейс (в данном случае использую второе окно терминала):
