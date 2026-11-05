@@ -1,5 +1,6 @@
 import logging
 import os
+import pathlib
 import sys
 from contextlib import asynccontextmanager
 
@@ -24,7 +25,8 @@ if os.getenv('MODE') != 'DEV':
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     logger.info("Start application")
-    app.state.model = joblib.load("../model/model.pkl")
+    BASE_DIR = pathlib.Path(__file__).parent.parent
+    app.state.model = joblib.load(BASE_DIR / "model" / "model.pkl")
     logger.info("Model is loaded")
     yield
     logger.info("Start shutdown")
