@@ -2,12 +2,12 @@
 
 ![Форма заявки](docs/form.png)
 
-Сервис скоринга из [видео](https://youtu.be/XMG4RTdhzoI) на канале [мыш](https://www.youtube.com/channel/UCscWjyvPudzdIaGCCtEL3nw).
-
 ## Подготовка
 
 Клонируем репозиторий:
+```shell
 git clone https://github.com/E4x7k/test-prg.git
+```
 
 Перед запуском сервиса скоринга и формы заявки нужно выполнить следующие шаги:
 
