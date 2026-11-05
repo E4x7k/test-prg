@@ -6,7 +6,7 @@ from contextlib import asynccontextmanager
 
 import joblib
 from dotenv import load_dotenv
-from fastapi import FastAPI
+from fastapi import FastAPI, status
 from schemas import ClientData
 
 load_dotenv()
@@ -35,7 +35,7 @@ app = FastAPI(title='Test scoring app', lifespan=lifespan)
 
 
 
-@app.post("/score")
+@app.post("/score", status_code=status.HTTP_200_OK)
 def score(data: ClientData):
     features = [data.age, data.income, data.education, data.work, data.car]
     approved = not app.state.model.predict([features])[0].item()
