@@ -15,7 +15,10 @@ with st.form("Подать заявку"):
 if submit:
     data = {"age": age, "income": income, "education": education, "work": work, "car": car}
     response = requests.post("http://127.0.0.1:8000/score", json=data)
-    if response.json()["approved"]:
-        st.success("Поздравляем, ваша заявка одобрена!")
+    if response.status_code == 200:
+        if response.json()["approved"]:
+            st.success("Поздравляем, ваша заявка одобрена!")
+        else:
+            st.success("Подобрали для вас альтернативу — дебетовая карта с 3% кэшбеком.")
     else:
-        st.success("Подобрали для вас альтернативу — дебетовая карта с 3% кэшбеком.")
+        st.error("Ошибка на сервере")
