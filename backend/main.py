@@ -40,3 +40,6 @@ def score(data: ClientData):
     features = [data.age, data.income, data.education, data.work, data.car]
     approved = not app.state.model.predict([features])[0].item()
     return {"approved": approved}
+@app.get("/health")
+def health():
+    return {"status":"ok"}
