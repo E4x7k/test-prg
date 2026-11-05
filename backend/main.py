@@ -35,7 +35,7 @@ app = FastAPI(title='Test scoring app', lifespan=lifespan)
 
 
 
-@app.post("/score", status_code=status.HTTP_200_OK, summary="Скоринг клиента")
+@app.post("/score", summary="Скоринг клиента")
 def score(data: ClientData):
     features = [data.age, data.income, data.education, data.work, data.car]
     approved = not app.state.model.predict([features])[0].item()
